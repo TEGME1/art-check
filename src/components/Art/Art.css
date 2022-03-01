@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-background-color:#B4B4B4;
+    --primary-color:#494848;
+    --secondary-background-color:#494848;
+    --secondary-color:#FFFFFF;
+}
+
+.art-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.art-container{
+    overflow-x: hidden;
+}
+
+.art-block:nth-of-type(2n) > .art-block-image{
+    transform: translateX(-100%);
+}
+.art-block:nth-of-type(2n) > .active-art{
+    transform: translateX(0%);
+}
+
+.art-block-image{
+    transition:transform 1s ease-out, opacity 1s ease-out;
+    transform: translateX(100%);
+    height: 100vh;
+    opacity: 0;
+}
+.active-art{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.art-block{
+    display: flex;
+    flex-direction: column;
+}
+
+.art-block{
+    color: var(--secondary-color);
+    background-color: var(--secondary-background-color);
+}
+.art-block:nth-of-type(2n){
+    color: var(--primary-color);
+    background-color: var(--primary-background-color);
+}
+
+.art-text-container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+}
+
+.active-art-text{
+    opacity: 1;
+}
+
+.art-main-block{
+    height: 100vh;
+    position: relative;
+}
+
+.main-image{
+    height: 100vh;
+}
+
+.art-title{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+@media screen and (min-width:768px){
+
+    .art-main-block{
+        display: flex;
+    }
+    .art-title{
+        position: static;
+        width: 40%;
+        background-color: var(--primary-background-color);
+    }
+
+    .main-image{
+        width: 60%;
+    }
+
+    .art-block{
+        flex-direction:row ;
+    }
+
+    .art-block:nth-of-type(2n){
+        flex-direction: row-reverse;
+    }
+
+    .art-block-image{
+        width: 50%;
+        height: 70vh;
+    }
+
+    .art-text-container{
+        padding-inline:10px ;
+        width: 50%;
+        height: 70vh;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .art-block-image{
+        width: 30%;
+    }
+
+    .art-text-container{
+        width: 70%;
+    }
+
+    .art-title{
+        width: 30%;
+    }
+
+    .main-image{
+        width: 70%;
+    }
+}
